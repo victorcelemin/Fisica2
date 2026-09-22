@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruleta: Ley de Coulomb</title>
+    <title>Ruleta: Ley de Coulomb - Universidad del Tolima</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -12,15 +12,25 @@
     
     <div class="container">
         <header>
-            <h1>Ruleta de la Ley de Coulomb ⚡</h1>
-            <p>Añade jugadores, gira la ruleta y responde a las preguntas</p>
+            <div class="logos">
+                <div class="logo-ut">
+                    <span class="ut-u">U</span>
+                    <div class="ut-text">
+                        <span>Universidad</span>
+                        <span>del Tolima</span>
+                    </div>
+                </div>
+                <div class="logo-idead">IDEAD</div>
+            </div>
+            <h1>Física II: Ley de Coulomb ⚡</h1>
+            <p>Añade a los estudiantes, gira la ruleta de cargas y responde</p>
         </header>
 
         <div class="main-content">
             <div class="sidebar">
-                <h2>Jugadores</h2>
+                <h2>Estudiantes</h2>
                 <div class="input-group">
-                    <input type="text" id="nameInput" placeholder="Nombre del jugador" autocomplete="off">
+                    <input type="text" id="nameInput" placeholder="Nombre del estudiante" autocomplete="off">
                     <button id="addNameBtn" class="btn primary">Añadir</button>
                 </div>
                 <ul id="nameList" class="name-list"></ul>

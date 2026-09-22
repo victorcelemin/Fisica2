@@ -1,82 +1,82 @@
 const questions = [
     {
         q: "¿Quién formuló la Ley de Coulomb y mediante qué experimento se comprobó?",
-        a: "Fue formulada por el físico e ingeniero francés Charles-Augustin de Coulomb en 1785. La comprobó experimentalmente utilizando una balanza de torsión, un dispositivo de gran sensibilidad que medía la torsión de un hilo suspendido producida por la fuerza de repulsión o atracción entre esferas metálicas cargadas."
+        a: "Fue formulada por el físico e ingeniero francés Charles-Augustin de Coulomb en 1785. La comprobó experimentalmente utilizando una <strong>balanza de torsión</strong>, un dispositivo de gran sensibilidad que medía la torsión de un hilo suspendido producida por la fuerza de repulsión o atracción entre esferas metálicas cargadas."
     },
     {
-        q: "¿Qué es una carga puntual y por qué es necesaria para aplicar la fórmula?",
-        a: "Una carga puntual es un modelo físico que asume que toda la carga eléctrica de un cuerpo está concentrada en un único punto geométrico sin dimensiones apreciables. Es necesaria porque la fórmula estándar asume que la distancia entre los centros de carga está perfectamente definida y no se ve alterada por la redistribución geométrica de las cargas en el volumen del cuerpo."
+        q: "¿Qué es una <strong>carga puntual</strong> y por qué es necesaria para aplicar la fórmula?",
+        a: "Una carga puntual es un modelo físico que asume que toda la carga eléctrica de un cuerpo está concentrada en un único punto geométrico sin dimensiones apreciables. Es necesaria porque la fórmula estándar asume que la distancia entre los centros de carga está perfectamente definida."
     },
     {
-        q: "¿Qué representa la constante electrostática (k) y cuál es su valor en el vacío?",
-        a: "Representa la constante de proporcionalidad que relaciona el producto de las cargas y el cuadrado de la distancia con la magnitud de la fuerza en un medio determinado. En el vacío, su valor en el Sistema Internacional es k = 8.99 x 10^9 N·m^2/C^2."
+        q: "¿Qué representa la constante electrostática (<em>k</em>) y cuál es su valor en el vacío?",
+        a: "Representa la constante de proporcionalidad que relaciona el producto de las cargas y el cuadrado de la distancia con la magnitud de la fuerza. En el vacío, su valor en el SI es <strong>k = 8.99 &times; 10<sup>9</sup> N&middot;m<sup>2</sup>/C<sup>2</sup></strong>."
     },
     {
-        q: "¿Qué es la permitividad del vacío (epsilon_0) y cómo se relaciona con k?",
-        a: "Es una constante física fundamental que cuantifica la capacidad del espacio vacío para permitir el establecimiento de un campo eléctrico. Se relaciona mediante k = 1 / (4 * pi * epsilon_0). Su valor es aprox 8.854 x 10^-12 C^2 / (N·m^2)."
+        q: "¿Qué es la permitividad del vacío (<em>&epsilon;<sub>0</sub></em>) y cómo se relaciona con <em>k</em>?",
+        a: "Es una constante física fundamental que cuantifica la capacidad del espacio vacío para permitir el establecimiento de un campo eléctrico. Se relaciona mediante <strong>k = 1 / (4&pi;&epsilon;<sub>0</sub>)</strong>. Su valor es aprox <strong>8.854 &times; 10<sup>-12</sup> C<sup>2</sup>/(N&middot;m<sup>2</sup>)</strong>."
     },
     {
-        q: "¿Por qué la Ley de Coulomb se clasifica como una 'ley del inverso del cuadrado'?",
-        a: "Porque la intensidad de la fuerza electrostática disminuye de forma cuadrática respecto a la distancia de separación (1 / r^2). Si la distancia se triplica, la fuerza se reduce a la novena parte (1/9)."
+        q: "¿Por qué la Ley de Coulomb se clasifica como una <em>'ley del inverso del cuadrado'</em>?",
+        a: "Porque la intensidad de la fuerza electrostática disminuye de forma cuadrática respecto a la distancia de separación <strong>(1 / r<sup>2</sup>)</strong>. Si la distancia se triplica, la fuerza se reduce a la novena parte (1/9)."
     },
     {
         q: "¿Qué ocurre con la fuerza electrostática si ambas cargas duplican su valor a la vez?",
-        a: "La fuerza se vuelve 4 veces mayor. Dado que la fuerza depende directamente del producto de las magnitudes de las cargas, al duplicar ambas (2q1 * 2q2), el producto se cuadruplica."
+        a: "La fuerza se vuelve <strong>4 veces mayor</strong>. Dado que la fuerza depende directamente del producto de las magnitudes de las cargas, al duplicar ambas (2q<sub>1</sub> &times; 2q<sub>2</sub>), el producto se cuadruplica."
     },
     {
-        q: "¿Cómo se define la forma vectorial de la Ley de Coulomb?",
-        a: "F_12 = k * [(q1 * q2) / r^2] * u_12, donde u_12 es un vector unitario en la línea recta que une ambas cargas. Signo positivo indica repulsión y negativo atracción."
+        q: "¿Cómo se define la <strong>forma vectorial</strong> de la Ley de Coulomb?",
+        a: "<strong>F<sub>12</sub> = k &middot; [(q<sub>1</sub> &middot; q<sub>2</sub>) / r<sup>2</sup>] &middot; u<sub>12</sub></strong>, donde <em>u<sub>12</sub></em> es un vector unitario en la línea recta que une ambas cargas. Signo positivo indica repulsión y negativo atracción."
     },
     {
-        q: "¿Cumple la fuerza eléctrica de Coulomb con la Tercera Ley de Newton?",
-        a: "Sí. La fuerza que la carga 1 ejerce sobre la 2 es igual en magnitud y dirección, pero opuesta, a la que la 2 ejerce sobre la 1 (F_12 = -F_21). Forman un par de acción y reacción."
+        q: "¿Cumple la fuerza eléctrica de Coulomb con la <strong>Tercera Ley de Newton</strong>?",
+        a: "Sí. La fuerza que la carga 1 ejerce sobre la 2 es igual en magnitud y dirección, pero opuesta, a la que la 2 ejerce sobre la 1 <strong>(F<sub>12</sub> = -F<sub>21</sub>)</strong>. Forman un par de acción y reacción."
     },
     {
-        q: "¿Qué es la permitividad relativa o constante dieléctrica (epsilon_r) de un medio?",
-        a: "Es un factor adimensional que indica cuántas veces es más permisivo un material aislante para el campo eléctrico en comparación con el vacío (epsilon_r = epsilon / epsilon_0)."
+        q: "¿Qué es la permitividad relativa o constante dieléctrica (<em>&epsilon;<sub>r</sub></em>) de un medio?",
+        a: "Es un factor adimensional que indica cuántas veces es más permisivo un material aislante para el campo eléctrico en comparación con el vacío <strong>(&epsilon;<sub>r</sub> = &epsilon; / &epsilon;<sub>0</sub>)</strong>."
     },
     {
-        q: "¿Por qué dos cargas experimentan una fuerza mucho menor sumergidas en agua que en el vacío?",
-        a: "Porque el agua es altamente polar. Sus moléculas se orientan alrededor de cada carga (solvatación), creando un campo opuesto que apantalla las cargas, reduciendo la fuerza neta a una octogésima parte."
+        q: "¿Por qué dos cargas experimentan una fuerza mucho menor sumergidas en <strong>agua</strong> que en el vacío?",
+        a: "Porque el agua es altamente polar. Sus moléculas se orientan alrededor de cada carga (solvatación), creando un campo opuesto que apantalla las cargas, reduciendo la fuerza neta a una <strong>octogésima parte (1/80)</strong>."
     },
     {
-        q: "¿Cuál es la diferencia técnica entre permitividad absoluta y permitividad relativa?",
-        a: "La permitividad absoluta tiene unidades (C^2 / N·m^2) y describe el medio específico. La relativa es una relación comparativa pura (sin unidades) tomando el vacío como base 1."
+        q: "¿Cuál es la diferencia técnica entre permitividad <strong>absoluta</strong> y permitividad <strong>relativa</strong>?",
+        a: "La permitividad absoluta tiene unidades (C<sup>2</sup>/N&middot;m<sup>2</sup>) y describe el medio específico. La relativa es una relación comparativa pura (sin unidades) tomando el vacío como base 1."
     },
     {
         q: "¿Qué sucede si se coloca una lámina conductora conectada a tierra entre las cargas?",
-        a: "El conductor reorganiza instantáneamente sus electrones, anulando las líneas de campo eléctrico en su interior (jaula de Faraday). Esto interrumpe la interacción directa entre las cargas."
+        a: "El conductor reorganiza instantáneamente sus electrones, anulando las líneas de campo eléctrico en su interior (<strong>jaula de Faraday</strong>). Esto interrumpe la interacción directa entre las cargas."
     },
     {
-        q: "¿Qué establece el Principio de Superposición en electrostática?",
-        a: "Establece que la fuerza total sobre una carga en un sistema es igual a la suma vectorial de las fuerzas individuales que cada una de las demás cargas ejerce sobre ella de forma independiente."
+        q: "¿Qué establece el <strong>Principio de Superposición</strong> en electrostática?",
+        a: "Establece que la fuerza total sobre una carga en un sistema es igual a la <strong>suma vectorial</strong> de las fuerzas individuales que cada una de las demás cargas ejerce sobre ella de forma independiente."
     },
     {
-        q: "¿Cómo se determina el punto de equilibrio electrostático entre dos cargas fijas?",
+        q: "¿Cómo se determina el punto de <strong>equilibrio electrostático</strong> entre dos cargas fijas?",
         a: "Es el lugar donde la suma vectorial de las fuerzas sobre una tercera carga es cero. Con igual signo, está entre ellas; con signos opuestos, sobre la línea exterior más cercana a la menor."
     },
     {
-        q: "¿Qué postula el Teorema de Earnshaw en relación con el equilibrio de cargas?",
-        a: "Demuestra que es imposible mantener un conjunto de cargas puntuales estáticas en equilibrio estable únicamente con fuerzas electrostáticas (inversas al cuadrado). Cualquier perturbación lo desestabilizará."
+        q: "¿Qué postula el <strong>Teorema de Earnshaw</strong> en relación con el equilibrio de cargas?",
+        a: "Demuestra que es <strong>imposible</strong> mantener un conjunto de cargas puntuales estáticas en equilibrio estable únicamente con fuerzas electrostáticas (inversas al cuadrado). Cualquier perturbación lo desestabilizará."
     },
     {
-        q: "¿Cómo se calcula la fuerza neta cuando las cargas están distribuidas en un plano bidimensional?",
-        a: "Se calculan las magnitudes por pares, se descomponen en componentes cartesianas (X e Y), se suman algebraicamente por eje, y se halla la resultante aplicando el Teorema de Pitágoras."
+        q: "¿Cómo se calcula la <strong>fuerza neta</strong> cuando las cargas están distribuidas en un plano bidimensional?",
+        a: "Se calculan las magnitudes por pares, se descomponen en <strong>componentes cartesianas (X e Y)</strong>, se suman algebraicamente por eje, y se halla la resultante aplicando el Teorema de Pitágoras."
     },
     {
-        q: "¿Por qué la Ley de Coulomb no describe adecuadamente las fuerzas entre cargas en movimiento rápido?",
+        q: "¿Por qué la Ley de Coulomb no describe adecuadamente las fuerzas entre cargas en <strong>movimiento rápido</strong>?",
         a: "Porque es puramente electrostática. En movimiento rápido generan campos magnéticos y propagación retardada, lo que exige las ecuaciones de Maxwell y la Fuerza de Lorentz."
     },
     {
-        q: "¿Si los protones se repelen, por qué no se desintegra el núcleo atómico?",
-        a: "A distancias subatómicas (10^-15 m) actúa la Fuerza Nuclear Fuerte, que es unas 100 veces más intensa que la repulsión de Coulomb, superándola y manteniendo el núcleo cohesionado."
+        q: "¿Si los protones se repelen, por qué no se desintegra el <strong>núcleo atómico</strong>?",
+        a: "A distancias subatómicas (10<sup>-15</sup> m) actúa la <strong>Fuerza Nuclear Fuerte</strong>, que es unas 100 veces más intensa que la repulsión de Coulomb, superándola y manteniendo el núcleo cohesionado."
     },
     {
-        q: "¿Por qué no sentimos fuerzas electrostáticas con los objetos cotidianos?",
-        a: "Porque la materia macroscópica es eléctricamente neutra, conteniendo casi el mismo número de electrones que de protones, por lo que las cargas netas son cero a distancias perceptibles."
+        q: "¿Por qué no sentimos fuerzas electrostáticas intensas con los <strong>objetos cotidianos</strong>?",
+        a: "Porque la materia macroscópica es <strong>eléctricamente neutra</strong>, conteniendo casi el mismo número de electrones que de protones, por lo que las cargas netas son cero a distancias perceptibles."
     },
     {
-        q: "¿Qué aplicaciones tecnológicas cotidianas e industriales se basan en la fuerza de Coulomb?",
+        q: "¿Qué <strong>aplicaciones tecnológicas</strong> cotidianas e industriales se basan en la fuerza de Coulomb?",
         a: "Pintura electrostática en polvo, impresoras láser/fotocopiadoras, y precipitadores electrostáticos (filtros industriales para humo y polvo)."
     }
 ];
@@ -102,12 +102,11 @@ const closeModalBtn = document.getElementById('closeModalBtn');
 let currentRotation = 0;
 let isSpinning = false;
 
-// Generar colores bonitos
+// Generar colores temáticos (Rojos UT, Negros, Grises, Azules)
 function generateColors(count) {
     const palette = [
-        '#ef4444', '#f97316', '#f59e0b', '#84cc16', '#22c55e', 
-        '#10b981', '#06b6d4', '#0ea5e9', '#3b82f6', '#6366f1', 
-        '#8b5cf6', '#a855f7', '#d946ef', '#ec4899', '#f43f5e'
+        '#c8102e', '#1e293b', '#9e0b22', '#3b82f6', 
+        '#ef4444', '#0f172a', '#dc2626', '#2563eb'
     ];
     colors = [];
     for (let i = 0; i < count; i++) {
@@ -115,20 +114,26 @@ function generateColors(count) {
     }
 }
 
-// Background Particles
+// Background Particles (Charges)
 function createParticles() {
     const particlesContainer = document.getElementById('particles');
-    for(let i = 0; i < 20; i++) {
+    for(let i = 0; i < 30; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
+        // Randomly assign positive (red) or negative (blue)
+        if (Math.random() > 0.5) {
+            particle.classList.add('positive');
+        } else {
+            particle.classList.add('negative');
+        }
         
-        const size = Math.random() * 50 + 20;
+        const size = Math.random() * 40 + 20;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         
         particle.style.left = `${Math.random() * 100}%`;
-        particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
-        particle.style.animationDelay = `${Math.random() * 5}s`;
+        particle.style.animationDuration = `${Math.random() * 10 + 15}s`;
+        particle.style.animationDelay = `${Math.random() * 10}s`;
         
         particlesContainer.appendChild(particle);
     }
@@ -140,6 +145,7 @@ function updateUI() {
         const li = document.createElement('li');
         const span = document.createElement('span');
         span.textContent = player;
+        span.style.fontWeight = "600";
         
         const deleteBtn = document.createElement('button');
         deleteBtn.innerHTML = '×';
@@ -185,14 +191,14 @@ function drawRoulette() {
     if (players.length === 0) {
         ctx.beginPath();
         ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
-        ctx.fillStyle = '#1e293b';
+        ctx.fillStyle = '#e2e8f0';
         ctx.fill();
         
         ctx.fillStyle = '#64748b';
         ctx.font = '20px Poppins';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText('Añade jugadores', centerX, centerY);
+        ctx.fillText('Añade estudiantes', centerX, centerY);
         return;
     }
 
@@ -207,6 +213,8 @@ function drawRoulette() {
         ctx.arc(centerX, centerY, radius, angle, angle + arc);
         ctx.lineTo(centerX, centerY);
         ctx.fill();
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 2;
         ctx.stroke();
 
         ctx.save();
@@ -220,22 +228,28 @@ function drawRoulette() {
         ctx.shadowColor = 'rgba(0,0,0,0.5)';
         ctx.shadowBlur = 4;
         
-        // Truncate long names
         let displayName = player;
-        if(displayName.length > 12) displayName = displayName.substring(0, 10) + '...';
+        if(displayName.length > 14) displayName = displayName.substring(0, 12) + '...';
         
-        ctx.fillText(displayName, radius - 20, 0);
+        ctx.fillText(displayName, radius - 25, 0);
         ctx.restore();
     });
     
-    // Draw center circle
+    // Draw center circle (representing a nucleus)
     ctx.beginPath();
     ctx.arc(centerX, centerY, radius * 0.15, 0, 2 * Math.PI);
-    ctx.fillStyle = '#0f172a';
+    ctx.fillStyle = '#ffffff';
     ctx.fill();
-    ctx.strokeStyle = '#ffffff';
-    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#c8102e';
+    ctx.lineWidth = 5;
     ctx.stroke();
+    
+    // Draw a plus in the center
+    ctx.fillStyle = '#c8102e';
+    ctx.font = 'bold 30px Poppins';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('+', centerX, centerY + 2);
 }
 
 function spin() {
@@ -244,47 +258,40 @@ function spin() {
     isSpinning = true;
     spinBtn.disabled = true;
 
-    // Random spins (between 5 and 10 full rotations) + random end angle
     const spins = Math.floor(Math.random() * 5) + 5;
     const degrees = Math.floor(Math.random() * 360);
     const totalRotation = (spins * 360) + degrees;
     
     currentRotation += totalRotation;
-    
     canvas.style.transform = `rotate(${currentRotation}deg)`;
 
     setTimeout(() => {
         isSpinning = false;
         spinBtn.disabled = false;
         
-        // Calculate winner
         const normalizedRotation = currentRotation % 360;
-        // Pointer is at the top (270 degrees in canvas coords, or considering rotation it shifts)
-        // Since canvas rotates clockwise, the top point moves opposite to rotation
         const sliceAngle = 360 / players.length;
         
-        // 270 deg is the top. 
-        // 360 - normalizedRotation gives us how much the wheel was turned backwards from 0
         const topAngle = (360 - normalizedRotation + 270) % 360;
         const winnerIndex = Math.floor(topAngle / sliceAngle);
         
         const winner = players[winnerIndex];
-        
         showQuestion(winner);
         
-    }, 5000); // 5 seconds matches CSS transition duration
+    }, 5000); 
 }
 
 spinBtn.addEventListener('click', spin);
 
 function showQuestion(winner) {
-    // Pick a random question
     const qIndex = Math.floor(Math.random() * questions.length);
     const question = questions[qIndex];
     
     winnerNameEl.textContent = `¡El turno es de ${winner}!`;
-    questionTextEl.textContent = question.q;
-    answerTextEl.textContent = question.a;
+    
+    // Usar innerHTML para que los subíndices (epsilon_0) y superíndices funcionen correctamente
+    questionTextEl.innerHTML = question.q;
+    answerTextEl.innerHTML = question.a;
     
     answerContentEl.classList.add('hidden');
     showAnswerBtn.classList.remove('hidden');

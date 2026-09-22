@@ -1,13 +1,15 @@
 :root {
-    --bg-color: #0f172a;
-    --card-bg: rgba(30, 41, 59, 0.8);
-    --primary: #3b82f6;
-    --primary-hover: #2563eb;
-    --secondary: #8b5cf6;
-    --accent: #f59e0b;
-    --text: #f8fafc;
-    --text-muted: #cbd5e1;
-    --border: rgba(255, 255, 255, 0.1);
+    --ut-red: #c8102e; /* Color rojo Universidad del Tolima */
+    --ut-dark-red: #9e0b22;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --primary: #c8102e;
+    --primary-hover: #9e0b22;
+    --secondary: #1e293b; /* Color oscuro/negro para contraste */
+    --accent: #3b82f6; /* Azul para cargas negativas */
+    --text: #0f172a;
+    --text-muted: #475569;
+    --border: #e2e8f0;
 }
 
 * {
@@ -26,65 +28,120 @@ body {
     align-items: center;
     overflow-x: hidden;
     position: relative;
+    padding: 2rem 0;
 }
 
-/* Background Particles */
+/* Background Particles (Positive and Negative Charges) */
 .particles {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
     overflow: hidden;
+    background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
 }
 
 .particle {
     position: absolute;
-    background: radial-gradient(circle, rgba(59,130,246,0.8) 0%, rgba(59,130,246,0) 70%);
     border-radius: 50%;
     animation: float 15s infinite linear;
-    opacity: 0.5;
+    opacity: 0.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
 }
 
+.particle.positive {
+    background: radial-gradient(circle, rgba(200,16,46,0.8) 0%, rgba(200,16,46,0) 70%);
+}
+.particle.positive::after { content: '+'; }
+
+.particle.negative {
+    background: radial-gradient(circle, rgba(59,130,246,0.8) 0%, rgba(59,130,246,0) 70%);
+}
+.particle.negative::after { content: '-'; }
+
 @keyframes float {
-    0% { transform: translateY(100vh) scale(0); opacity: 0; }
-    50% { opacity: 0.5; }
-    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    0% { transform: translateY(100vh) scale(0) rotate(0deg); opacity: 0; }
+    50% { opacity: 0.4; }
+    100% { transform: translateY(-10vh) scale(1) rotate(360deg); opacity: 0; }
 }
 
 .container {
     width: 90%;
     max-width: 1200px;
     background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 24px;
+    border: 2px solid var(--border);
+    border-top: 8px solid var(--ut-red);
+    border-radius: 16px;
     padding: 2rem;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
 
 header {
     text-align: center;
     margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 1.5rem;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.logo-ut {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ut-u {
+    background: var(--ut-red);
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 900;
+    padding: 0 1rem;
+    border-radius: 8px 8px 30px 30px;
+    line-height: 1.2;
+}
+
+.ut-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.1;
+    color: black;
+}
+
+.logo-idead {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--ut-red);
+    border-left: 2px solid var(--border);
+    padding-left: 2rem;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 2.2rem;
+    color: var(--secondary);
     margin-bottom: 0.5rem;
-    animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 10px rgba(59,130,246,0.2); }
-    to { text-shadow: 0 0 20px rgba(139,92,246,0.6); }
 }
 
 header p {
     color: var(--text-muted);
+    font-size: 1.1rem;
 }
 
 .main-content {
@@ -97,16 +154,17 @@ header p {
 .sidebar {
     flex: 1;
     min-width: 300px;
-    background: rgba(0, 0, 0, 0.2);
+    background: #f8fafc;
     padding: 1.5rem;
-    border-radius: 16px;
+    border-radius: 12px;
     border: 1px solid var(--border);
 }
 
 .sidebar h2 {
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    border-bottom: 2px solid var(--primary);
+    color: var(--secondary);
+    border-bottom: 3px solid var(--ut-red);
     padding-bottom: 0.5rem;
     display: inline-block;
 }
@@ -121,16 +179,17 @@ input {
     flex: 1;
     padding: 0.75rem 1rem;
     border-radius: 8px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #cbd5e1;
+    background: white;
     color: var(--text);
     outline: none;
     transition: all 0.3s;
+    font-size: 1rem;
 }
 
 input:focus {
-    border-color: var(--primary);
-    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--ut-red);
+    box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.2);
 }
 
 .btn {
@@ -155,7 +214,7 @@ input:focus {
 
 .btn.primary:hover {
     background: var(--primary-hover);
-    box-shadow: 0 0 15px rgba(59,130,246,0.5);
+    box-shadow: 0 4px 12px rgba(200, 16, 46, 0.3);
 }
 
 .btn.secondary {
@@ -164,16 +223,16 @@ input:focus {
 }
 
 .btn.secondary:hover {
-    background: #7c3aed;
-    box-shadow: 0 0 15px rgba(139,92,246,0.5);
+    background: #0f172a;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
 }
 
 .btn:disabled {
-    background: #475569;
+    background: #cbd5e1;
+    color: #64748b;
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
-    opacity: 0.7;
 }
 
 .name-list {
@@ -183,14 +242,15 @@ input:focus {
 }
 
 .name-list li {
-    background: rgba(255, 255, 255, 0.05);
+    background: white;
     padding: 0.75rem 1rem;
     margin-bottom: 0.5rem;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-left: 4px solid var(--primary);
+    border-left: 4px solid var(--ut-red);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     animation: slideIn 0.3s ease-out;
 }
 
@@ -199,12 +259,13 @@ input:focus {
     border: none;
     color: #ef4444;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    line-height: 1;
     transition: color 0.3s;
 }
 
 .name-list li button:hover {
-    color: #dc2626;
+    color: #b91c1c;
 }
 
 @keyframes slideIn {
@@ -233,9 +294,9 @@ input:focus {
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    width: 30px;
-    height: 40px;
-    background: var(--accent);
+    width: 40px;
+    height: 50px;
+    background: var(--secondary);
     clip-path: polygon(50% 100%, 0 0, 100% 0);
     z-index: 10;
     filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
@@ -245,8 +306,8 @@ input:focus {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 8px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(0,0,0,0.5);
+    border: 8px solid var(--secondary);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1), inset 0 0 20px rgba(0,0,0,0.1);
     transition: transform 5s cubic-bezier(0.25, 0.1, 0.15, 1);
 }
 
@@ -254,14 +315,14 @@ input:focus {
     font-size: 1.2rem;
     padding: 1rem 3rem;
     border-radius: 50px;
-    background: linear-gradient(135deg, var(--accent), #d97706);
+    background: var(--ut-red);
     color: white;
-    box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+    box-shadow: 0 8px 20px rgba(200, 16, 46, 0.3);
 }
 
 .spin-btn:not(:disabled):hover {
-    background: linear-gradient(135deg, #fbbf24, var(--accent));
-    box-shadow: 0 15px 25px rgba(245, 158, 11, 0.5);
+    background: var(--ut-dark-red);
+    box-shadow: 0 12px 25px rgba(200, 16, 46, 0.4);
     transform: translateY(-2px);
 }
 
@@ -272,7 +333,7 @@ input:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(5px);
     display: flex;
     justify-content: center;
@@ -289,16 +350,16 @@ input:focus {
 }
 
 .modal-content {
-    background: var(--bg-color);
-    border: 1px solid var(--border);
-    border-radius: 20px;
+    background: var(--card-bg);
+    border-top: 8px solid var(--ut-red);
+    border-radius: 16px;
     padding: 2.5rem;
     width: 90%;
-    max-width: 600px;
+    max-width: 650px;
     text-align: center;
     transform: scale(0.8);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(59,130,246,0.3);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 .modal-overlay.active .modal-content {
@@ -307,29 +368,36 @@ input:focus {
 
 .winner-name {
     font-size: 2rem;
-    color: var(--accent);
+    color: var(--ut-red);
     margin-bottom: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    font-weight: 800;
 }
 
 .question-box {
-    background: rgba(255, 255, 255, 0.05);
+    background: #f8fafc;
     padding: 1.5rem;
     border-radius: 12px;
     margin-bottom: 1.5rem;
-    border-left: 4px solid var(--primary);
+    border-left: 5px solid var(--ut-red);
     text-align: left;
+    border: 1px solid var(--border);
+    border-left-width: 5px;
 }
 
 .question-box h3 {
-    color: var(--primary);
-    margin-bottom: 0.5rem;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
 }
 
 .question-box p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
+    color: var(--text);
+    font-weight: 600;
 }
 
 .answer-box {
@@ -338,18 +406,20 @@ input:focus {
 
 #answerContent {
     margin-top: 1rem;
-    background: rgba(139, 92, 246, 0.1);
+    background: #eff6ff;
     padding: 1.5rem;
     border-radius: 12px;
-    border-left: 4px solid var(--secondary);
+    border-left: 5px solid var(--accent);
     text-align: left;
     animation: fadeIn 0.5s ease;
+    border: 1px solid #bfdbfe;
+    border-left-width: 5px;
 }
 
 #answerContent p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.6;
-    color: var(--text-muted);
+    color: var(--text);
 }
 
 .hidden {
@@ -372,6 +442,18 @@ input:focus {
     }
     
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .logos {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .logo-idead {
+        border-left: none;
+        border-top: 2px solid var(--border);
+        padding-left: 0;
+        padding-top: 1rem;
     }
 }
