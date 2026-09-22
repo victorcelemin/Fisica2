@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruleta: Ley de Coulomb</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Ruleta de la Ley de Coulomb ⚡</h1>
+            <p>Añade jugadores, gira la ruleta y responde a las preguntas</p>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <h2>Jugadores</h2>
+                <div class="input-group">
+                    <input type="text" id="nameInput" placeholder="Nombre del jugador" autocomplete="off">
+                    <button id="addNameBtn" class="btn primary">Añadir</button>
+                </div>
+                <ul id="nameList" class="name-list"></ul>
+            </div>
+
+            <div class="roulette-section">
+                <div class="roulette-container">
+                    <div class="pointer"></div>
+                    <canvas id="rouletteCanvas" width="400" height="400"></canvas>
+                </div>
+                <button id="spinBtn" class="btn spin-btn" disabled>GIRAR RULETA</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Question -->
+    <div class="modal-overlay" id="questionModal">
+        <div class="modal-content">
+            <h2 id="winnerName" class="winner-name"></h2>
+            <div class="question-box">
+                <h3>Pregunta:</h3>
+                <p id="questionText"></p>
+            </div>
+            <div class="answer-box">
+                <button id="showAnswerBtn" class="btn secondary">Mostrar Respuesta</button>
+                <div id="answerContent" class="hidden">
+                    <p id="answerText"></p>
+                </div>
+            </div>
+            <button id="closeModalBtn" class="btn primary close-btn">Continuar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
