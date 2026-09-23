@@ -19,8 +19,9 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Dynamic Breathtaking Background */
 body {
-    background-color: var(--bg-color);
+    background-color: #020008;
     color: var(--text);
     min-height: 100vh;
     display: flex;
@@ -31,7 +32,21 @@ body {
     padding: 2rem 0;
 }
 
-/* Background Particles (Positive and Negative Charges) */
+.dynamic-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2;
+    background: 
+        radial-gradient(circle at 15% 50%, rgba(200, 16, 46, 0.15), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.15), transparent 40%);
+    animation: pulseBg 10s infinite alternate;
+}
+
+@keyframes pulseBg {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.5); }
+}
+
 .particles {
     position: fixed;
     top: 0;
@@ -40,36 +55,102 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    background: radial-gradient(circle at center, #ffffff 0%, #f1f5f9 100%);
+    background: transparent;
 }
 
 .particle {
     position: absolute;
     border-radius: 50%;
-    animation: float 15s infinite linear;
-    opacity: 0.2;
+    animation: floatParticle linear infinite;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
-    font-size: 24px;
-    color: white;
+    font-weight: 900;
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+    box-shadow: 0 0 15px currentColor;
 }
 
 .particle.positive {
-    background: radial-gradient(circle, rgba(200,16,46,0.8) 0%, rgba(200,16,46,0) 70%);
+    background: radial-gradient(circle, #ff2a4b 0%, rgba(200,16,46,0) 80%);
+    color: #ff2a4b;
 }
-.particle.positive::after { content: '+'; }
+.particle.positive::after { content: '+'; color: #fff; text-shadow: 0 0 5px #ff2a4b; }
 
 .particle.negative {
-    background: radial-gradient(circle, rgba(59,130,246,0.8) 0%, rgba(59,130,246,0) 70%);
+    background: radial-gradient(circle, #4dabf7 0%, rgba(59,130,246,0) 80%);
+    color: #4dabf7;
 }
-.particle.negative::after { content: '-'; }
+.particle.negative::after { content: '-'; color: #fff; text-shadow: 0 0 5px #4dabf7; }
 
-@keyframes float {
-    0% { transform: translateY(100vh) scale(0) rotate(0deg); opacity: 0; }
-    50% { opacity: 0.4; }
-    100% { transform: translateY(-10vh) scale(1) rotate(360deg); opacity: 0; }
+@keyframes floatParticle {
+    0% { transform: translateY(110vh) translateX(-20px) scale(0.5); opacity: 0; }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) translateX(20px) scale(1.2); opacity: 0; }
+}
+
+/* Audio Control UI */
+.audio-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 50;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    color: white;
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.song-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #ff2a4b;
+}
+
+.song-artist {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+}
+
+.sound-bars {
+    display: flex;
+    gap: 3px;
+    height: 30px;
+    align-items: center;
+}
+
+.sound-bar {
+    width: 4px;
+    background: #4dabf7;
+    border-radius: 2px;
+    height: 5px;
+    transition: height 0.1s ease;
+}
+
+.play-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s;
+    outline: none;
+}
+.play-btn:hover {
+    transform: scale(1.2);
 }
 
 .container {

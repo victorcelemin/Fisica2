@@ -1,83 +1,43 @@
 const questions = [
     {
-        q: "¿Quién formuló la Ley de Coulomb y mediante qué experimento se comprobó?",
-        a: "Fue formulada por el físico e ingeniero francés Charles-Augustin de Coulomb en 1785. La comprobó experimentalmente utilizando una <strong>balanza de torsión</strong>, un dispositivo de gran sensibilidad que medía la torsión de un hilo suspendido producida por la fuerza de repulsión o atracción entre esferas metálicas cargadas."
+        q: "¿Qué diferencia existe entre un conductor y un aislador respecto al comportamiento de sus electrones?",
+        a: "Los <strong>conductores</strong> permiten el flujo libre de cargas eléctricas debido a que sus electrones de valencia están poco ligados al núcleo. Por el contrario, los <strong>aisladores</strong> (o dieléctricos) no permiten el flujo libre de cargas porque sus electrones se encuentran fuertemente ligados."
     },
     {
-        q: "¿Qué es una <strong>carga puntual</strong> y por qué es necesaria para aplicar la fórmula?",
-        a: "Una carga puntual es un modelo físico que asume que toda la carga eléctrica de un cuerpo está concentrada en un único punto geométrico sin dimensiones apreciables. Es necesaria porque la fórmula estándar asume que la distancia entre los centros de carga está perfectamente definida."
+        q: "¿Qué ejemplos de materiales conductores y aisladores se presentan en el texto?",
+        a: "<strong>Conductores:</strong> Cobre, aluminio, plata y agua con sales.<br><strong>Aisladores:</strong> Vidrio, plástico, madera seca y caucho."
     },
     {
-        q: "¿Qué representa la constante electrostática (<em>k</em>) y cuál es su valor en el vacío?",
-        a: "Representa la constante de proporcionalidad que relaciona el producto de las cargas y el cuadrado de la distancia con la magnitud de la fuerza. En el vacío, su valor en el SI es <strong>k = 8.99 &times; 10<sup>9</sup> N&middot;m<sup>2</sup>/C<sup>2</sup></strong>."
+        q: "¿Qué establece la Ley de Coulomb y cuál es su fórmula matemática?",
+        a: "Describe la fuerza eléctrica entre dos cargas puntuales, señalando que es directamente proporcional al producto de las cargas e inversamente proporcional al cuadrado de la distancia que las separa. Su fórmula es <strong>F = k &middot; |q<sub>1</sub> &middot; q<sub>2</sub>| / r<sup>2</sup></strong>."
     },
     {
-        q: "¿Qué es la permitividad del vacío (<em>&epsilon;<sub>0</sub></em>) y cómo se relaciona con <em>k</em>?",
-        a: "Es una constante física fundamental que cuantifica la capacidad del espacio vacío para permitir el establecimiento de un campo eléctrico. Se relaciona mediante <strong>k = 1 / (4&pi;&epsilon;<sub>0</sub>)</strong>. Su valor es aprox <strong>8.854 &times; 10<sup>-12</sup> C<sup>2</sup>/(N&middot;m<sup>2</sup>)</strong>."
+        q: "¿Cuál es el valor numérico y las unidades de la constante de Coulomb (k)?",
+        a: "La constante equivale a <strong>k = 8.99 &times; 10<sup>9</sup> N&middot;m<sup>2</sup>/C<sup>2</sup></strong>."
     },
     {
-        q: "¿Por qué la Ley de Coulomb se clasifica como una <em>'ley del inverso del cuadrado'</em>?",
-        a: "Porque la intensidad de la fuerza electrostática disminuye de forma cuadrática respecto a la distancia de separación <strong>(1 / r<sup>2</sup>)</strong>. Si la distancia se triplica, la fuerza se reduce a la novena parte (1/9)."
+        q: "¿Cómo influye el signo de las cargas en la fuerza ejercida entre ellas?",
+        a: "Si las cargas tienen el <strong>mismo signo</strong>, la fuerza es de <strong>repulsión</strong>; si son de <strong>signo contrario</strong>, la fuerza es de <strong>atracción</strong>."
     },
     {
-        q: "¿Qué ocurre con la fuerza electrostática si ambas cargas duplican su valor a la vez?",
-        a: "La fuerza se vuelve <strong>4 veces mayor</strong>. Dado que la fuerza depende directamente del producto de las magnitudes de las cargas, al duplicar ambas (2q<sub>1</sub> &times; 2q<sub>2</sub>), el producto se cuadruplica."
+        q: "¿Qué es el campo eléctrico (E) y cuáles son sus fórmulas de cálculo?",
+        a: "Es la región del espacio alrededor de una carga donde se manifiesta una fuerza eléctrica sobre otra carga de prueba (definida como fuerza por unidad de carga). Se calcula mediante <strong>E = F / q</strong> o <strong>E = k &middot; |Q| / r<sup>2</sup></strong>."
     },
     {
-        q: "¿Cómo se define la <strong>forma vectorial</strong> de la Ley de Coulomb?",
-        a: "<strong>F<sub>12</sub> = k &middot; [(q<sub>1</sub> &middot; q<sub>2</sub>) / r<sup>2</sup>] &middot; u<sub>12</sub></strong>, donde <em>u<sub>12</sub></em> es un vector unitario en la línea recta que une ambas cargas. Signo positivo indica repulsión y negativo atracción."
+        q: "¿Cuáles son tres características fundamentales de las líneas de campo eléctrico?",
+        a: "1. Salen de las cargas positivas y entran en las negativas.<br>2. Nunca se cruzan entre sí.<br>3. Cuanto más juntas están, mayor es la intensidad del campo."
     },
     {
-        q: "¿Cumple la fuerza eléctrica de Coulomb con la <strong>Tercera Ley de Newton</strong>?",
-        a: "Sí. La fuerza que la carga 1 ejerce sobre la 2 es igual en magnitud y dirección, pero opuesta, a la que la 2 ejerce sobre la 1 <strong>(F<sub>12</sub> = -F<sub>21</sub>)</strong>. Forman un par de acción y reacción."
+        q: "¿Cómo se define el potencial eléctrico (V), cuál es su fórmula y en qué unidad se mide?",
+        a: "Se define como la energía potencial eléctrica por unidad de carga en un punto (<strong>V = k &middot; Q / r</strong>). Su unidad es el <strong>voltio (V)</strong>, equivalente a <strong>Joules por Coulomb (J/C)</strong>."
     },
     {
-        q: "¿Qué es la permitividad relativa o constante dieléctrica (<em>&epsilon;<sub>r</sub></em>) de un medio?",
-        a: "Es un factor adimensional que indica cuántas veces es más permisivo un material aislante para el campo eléctrico en comparación con el vacío <strong>(&epsilon;<sub>r</sub> = &epsilon; / &epsilon;<sub>0</sub>)</strong>."
+        q: "¿Qué es la diferencia de potencial (&Delta;V) y cuál es su papel en los circuitos?",
+        a: "Es el trabajo necesario para mover una carga entre dos puntos por unidad de carga (<strong>&Delta;V = W / q</strong>). También llamada <strong>voltaje</strong>, es la fuerza que impulsa la corriente eléctrica en un circuito."
     },
     {
-        q: "¿Por qué dos cargas experimentan una fuerza mucho menor sumergidas en <strong>agua</strong> que en el vacío?",
-        a: "Porque el agua es altamente polar. Sus moléculas se orientan alrededor de cada carga (solvatación), creando un campo opuesto que apantalla las cargas, reduciendo la fuerza neta a una <strong>octogésima parte (1/80)</strong>."
-    },
-    {
-        q: "¿Cuál es la diferencia técnica entre permitividad <strong>absoluta</strong> y permitividad <strong>relativa</strong>?",
-        a: "La permitividad absoluta tiene unidades (C<sup>2</sup>/N&middot;m<sup>2</sup>) y describe el medio específico. La relativa es una relación comparativa pura (sin unidades) tomando el vacío como base 1."
-    },
-    {
-        q: "¿Qué sucede si se coloca una lámina conductora conectada a tierra entre las cargas?",
-        a: "El conductor reorganiza instantáneamente sus electrones, anulando las líneas de campo eléctrico en su interior (<strong>jaula de Faraday</strong>). Esto interrumpe la interacción directa entre las cargas."
-    },
-    {
-        q: "¿Qué establece el <strong>Principio de Superposición</strong> en electrostática?",
-        a: "Establece que la fuerza total sobre una carga en un sistema es igual a la <strong>suma vectorial</strong> de las fuerzas individuales que cada una de las demás cargas ejerce sobre ella de forma independiente."
-    },
-    {
-        q: "¿Cómo se determina el punto de <strong>equilibrio electrostático</strong> entre dos cargas fijas?",
-        a: "Es el lugar donde la suma vectorial de las fuerzas sobre una tercera carga es cero. Con igual signo, está entre ellas; con signos opuestos, sobre la línea exterior más cercana a la menor."
-    },
-    {
-        q: "¿Qué postula el <strong>Teorema de Earnshaw</strong> en relación con el equilibrio de cargas?",
-        a: "Demuestra que es <strong>imposible</strong> mantener un conjunto de cargas puntuales estáticas en equilibrio estable únicamente con fuerzas electrostáticas (inversas al cuadrado). Cualquier perturbación lo desestabilizará."
-    },
-    {
-        q: "¿Cómo se calcula la <strong>fuerza neta</strong> cuando las cargas están distribuidas en un plano bidimensional?",
-        a: "Se calculan las magnitudes por pares, se descomponen en <strong>componentes cartesianas (X e Y)</strong>, se suman algebraicamente por eje, y se halla la resultante aplicando el Teorema de Pitágoras."
-    },
-    {
-        q: "¿Por qué la Ley de Coulomb no describe adecuadamente las fuerzas entre cargas en <strong>movimiento rápido</strong>?",
-        a: "Porque es puramente electrostática. En movimiento rápido generan campos magnéticos y propagación retardada, lo que exige las ecuaciones de Maxwell y la Fuerza de Lorentz."
-    },
-    {
-        q: "¿Si los protones se repelen, por qué no se desintegra el <strong>núcleo atómico</strong>?",
-        a: "A distancias subatómicas (10<sup>-15</sup> m) actúa la <strong>Fuerza Nuclear Fuerte</strong>, que es unas 100 veces más intensa que la repulsión de Coulomb, superándola y manteniendo el núcleo cohesionado."
-    },
-    {
-        q: "¿Por qué no sentimos fuerzas electrostáticas intensas con los <strong>objetos cotidianos</strong>?",
-        a: "Porque la materia macroscópica es <strong>eléctricamente neutra</strong>, conteniendo casi el mismo número de electrones que de protones, por lo que las cargas netas son cero a distancias perceptibles."
-    },
-    {
-        q: "¿Qué <strong>aplicaciones tecnológicas</strong> cotidianas e industriales se basan en la fuerza de Coulomb?",
-        a: "Pintura electrostática en polvo, impresoras láser/fotocopiadoras, y precipitadores electrostáticos (filtros industriales para humo y polvo)."
+        q: "Entre el campo eléctrico y el potencial eléctrico, ¿cuál es una magnitud vectorial y cuál escalar?",
+        a: "El <strong>campo eléctrico (E)</strong> es una <strong>magnitud vectorial</strong>, mientras que el <strong>potencial eléctrico (V)</strong> es una <strong>magnitud escalar</strong>."
     }
 ];
 
@@ -311,3 +271,51 @@ closeModalBtn.addEventListener('click', () => {
 // Init
 createParticles();
 drawRoulette();
+
+// Audio and Visualizer Logic
+const bgMusic = document.getElementById('bgMusic');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const soundBarsContainer = document.getElementById('soundBars');
+
+// Create sound bars
+const NUM_BARS = 15;
+for (let i = 0; i < NUM_BARS; i++) {
+    const bar = document.createElement('div');
+    bar.classList.add('sound-bar');
+    soundBarsContainer.appendChild(bar);
+}
+const bars = document.querySelectorAll('.sound-bar');
+
+let isPlaying = false;
+let visualizerInterval;
+
+function updateVisualizer() {
+    bars.forEach(bar => {
+        // Random height between 5px and 30px
+        const height = isPlaying ? Math.floor(Math.random() * 25) + 5 : 5;
+        bar.style.height = `${height}px`;
+    });
+}
+
+playPauseBtn.addEventListener('click', () => {
+    if (isPlaying) {
+        bgMusic.pause();
+        isPlaying = false;
+        playPauseBtn.textContent = '▶️';
+        clearInterval(visualizerInterval);
+        // Reset bars
+        bars.forEach(bar => bar.style.height = '5px');
+    } else {
+        bgMusic.play().then(() => {
+            isPlaying = true;
+            playPauseBtn.textContent = '⏸️';
+            visualizerInterval = setInterval(updateVisualizer, 150);
+        }).catch(err => {
+            console.warn('Audio play was prevented or file not found', err);
+            // Even if file not found, start visualizer as simulation
+            isPlaying = true;
+            playPauseBtn.textContent = '⏸️';
+            visualizerInterval = setInterval(updateVisualizer, 150);
+        });
+    }
+});
