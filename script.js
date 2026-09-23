@@ -275,10 +275,36 @@ drawRoulette();
 // Audio and Visualizer Logic
 const bgMusic = document.getElementById('bgMusic');
 const playPauseBtn = document.getElementById('playPauseBtn');
-const soundBarsContainer = document.getElementById('soundBars');
+const prevSongBtn = document.getElementById('prevSongBtn');
+const nextSongBtn = document.getElementById('nextSongBtn');
+const songTitleEl = document.getElementById('songTitle');
+const songArtistEl = document.getElementById('songArtist');
+const dynamicBg = document.getElementById('dynamicBg');
 
-// Create sound bars
+const bgVisualizerCanvas = document.getElementById('bgVisualizer');
+const bgVisCtx = bgVisualizerCanvas.getContext('2d');
+bgVisualizerCanvas.width = window.innerWidth;
+bgVisualizerCanvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+    bgVisualizerCanvas.width = window.innerWidth;
+    bgVisualizerCanvas.height = window.innerHeight;
+});
+
+const playlist = [
+    { src: 'perro_negro.mp3', title: 'Perro Negro', artist: 'Feid, Bad Bunny' },
+    { src: 'cancion2.mp3', title: 'Track 2', artist: 'Unknown' },
+    { src: 'cancion3.mp3', title: 'Track 3', artist: 'Unknown' }
+];
+
+let currentSongIndex = 0;
+let isPlaying = false;
+let audioCtx, analyser, dataArray;
+let animationId;
+
+const soundBarsContainer = document.getElementById('soundBars');
 const NUM_BARS = 15;
+soundBarsContainer.innerHTML = '';
 for (let i = 0; i < NUM_BARS; i++) {
     const bar = document.createElement('div');
     bar.classList.add('sound-bar');
@@ -286,36 +312,107 @@ for (let i = 0; i < NUM_BARS; i++) {
 }
 const bars = document.querySelectorAll('.sound-bar');
 
-let isPlaying = false;
-let visualizerInterval;
+function initAudio() {
+    if (audioCtx) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    analyser = audioCtx.createAnalyser();
+    const source = audioCtx.createMediaElementSource(bgMusic);
+    source.connect(analyser);
+    analyser.connect(audioCtx.destination);
+    analyser.fftSize = 256;
+    dataArray = new Uint8Array(analyser.frequencyBinCount);
+}
 
-function updateVisualizer() {
-    bars.forEach(bar => {
-        // Random height between 5px and 30px
-        const height = isPlaying ? Math.floor(Math.random() * 25) + 5 : 5;
+function loadSong(index) {
+    const song = playlist[index];
+    bgMusic.src = song.src;
+    songTitleEl.textContent = song.title;
+    songArtistEl.textContent = song.artist;
+    if (isPlaying) {
+        bgMusic.play().catch(e => console.warn('Play prevented', e));
+    }
+}
+
+function renderVisualizer() {
+    animationId = requestAnimationFrame(renderVisualizer);
+    if (!analyser) return;
+
+    analyser.getByteFrequencyData(dataArray);
+
+    // 1. Update mini UI bars
+    const step = Math.floor(dataArray.length / NUM_BARS);
+    bars.forEach((bar, i) => {
+        const val = dataArray[i * step];
+        const height = Math.max(5, (val / 255) * 25);
         bar.style.height = `${height}px`;
     });
+
+    // 2. Fullscreen background interactions
+    bgVisCtx.clearRect(0, 0, bgVisualizerCanvas.width, bgVisualizerCanvas.height);
+    
+    // Average bass for background pulsing
+    let bassSum = 0;
+    for (let i = 0; i < 10; i++) bassSum += dataArray[i];
+    const avgBass = bassSum / 10;
+    
+    const scale = 1 + (avgBass / 255) * 0.15;
+    dynamicBg.style.transform = `scale(${scale})`;
+    dynamicBg.style.filter = `brightness(${1 + (avgBass/255) * 0.5})`;
+
+    // Draw circular audio wave
+    const centerX = bgVisualizerCanvas.width / 2;
+    const centerY = bgVisualizerCanvas.height / 2;
+    const baseRadius = Math.min(centerX, centerY) * 0.4;
+
+    bgVisCtx.beginPath();
+    for (let i = 0; i < dataArray.length; i++) {
+        const val = dataArray[i];
+        const angle = (i / dataArray.length) * Math.PI * 2;
+        const r = baseRadius + (val / 255) * 150;
+        const x = centerX + Math.cos(angle) * r;
+        const y = centerY + Math.sin(angle) * r;
+        if (i === 0) bgVisCtx.moveTo(x, y);
+        else bgVisCtx.lineTo(x, y);
+    }
+    bgVisCtx.closePath();
+    bgVisCtx.strokeStyle = `rgba(200, 16, 46, ${avgBass / 255})`;
+    bgVisCtx.lineWidth = 5;
+    bgVisCtx.stroke();
+    bgVisCtx.fillStyle = `rgba(59, 130, 246, ${(avgBass / 255) * 0.1})`;
+    bgVisCtx.fill();
 }
 
 playPauseBtn.addEventListener('click', () => {
+    initAudio();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+
     if (isPlaying) {
         bgMusic.pause();
         isPlaying = false;
         playPauseBtn.textContent = '▶️';
-        clearInterval(visualizerInterval);
-        // Reset bars
+        cancelAnimationFrame(animationId);
         bars.forEach(bar => bar.style.height = '5px');
     } else {
         bgMusic.play().then(() => {
             isPlaying = true;
             playPauseBtn.textContent = '⏸️';
-            visualizerInterval = setInterval(updateVisualizer, 150);
+            renderVisualizer();
         }).catch(err => {
-            console.warn('Audio play was prevented or file not found', err);
-            // Even if file not found, start visualizer as simulation
-            isPlaying = true;
-            playPauseBtn.textContent = '⏸️';
-            visualizerInterval = setInterval(updateVisualizer, 150);
+            console.warn('Playback prevented', err);
         });
     }
+});
+
+prevSongBtn.addEventListener('click', () => {
+    currentSongIndex = (currentSongIndex - 1 + playlist.length) % playlist.length;
+    loadSong(currentSongIndex);
+});
+
+nextSongBtn.addEventListener('click', () => {
+    currentSongIndex = (currentSongIndex + 1) % playlist.length;
+    loadSong(currentSongIndex);
+});
+
+bgMusic.addEventListener('ended', () => {
+    nextSongBtn.click();
 });

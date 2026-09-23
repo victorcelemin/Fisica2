@@ -140,17 +140,42 @@ body {
     transition: height 0.1s ease;
 }
 
+#bgVisualizer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -3;
+    pointer-events: none;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.2s, text-shadow 0.2s;
+    outline: none;
+}
+.nav-btn:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
 .play-btn {
     background: none;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
     color: white;
-    transition: transform 0.2s;
+    transition: transform 0.2s, text-shadow 0.2s;
     outline: none;
 }
 .play-btn:hover {
     transform: scale(1.2);
+    text-shadow: 0 0 15px rgba(255,255,255,0.8);
 }
 
 .container {
